@@ -12,7 +12,7 @@ const register = async(req:Request,res:Response)=>{
             email:existuser?.email,
         }
 
-        const token = jwt.sign(payload, process.env.SECRET_KEY as string);
+        const token = jwt.sign(payload, process.env.SECRET_KEY as string,{expiresIn:"2h"});
         res.json({
             success:true,
             message:"token created for access"
